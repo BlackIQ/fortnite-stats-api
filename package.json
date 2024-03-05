@@ -24,7 +24,7 @@
     "jsonwebtoken": "^9.0.0",
     "link-module-alias": "^1.2.0",
     "md5": "^2.3.0",
-    "mongoose": "^6.11.3",
+    "mongoose": "^6.12.7",
     "rayid": "^2.1.2"
   }
 }
