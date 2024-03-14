@@ -68,7 +68,7 @@ export const DELETE = async (req, res) => {
     const favorite = await Favorite.findOneAndDelete({ _id: id });
 
     if (favorite) {
-      return res.status(200).send({ message: "Favorite deleted" });
+      return res.status(200).send({ message: "Favorite deleted", favorite });
     } else {
       return res.status(404).send({ message: "Favorite did not found" });
     }
