@@ -23,7 +23,6 @@ export const HANDLE = async (req, res) => {
 
     return res.status(200).send({ message: "Exists", user });
   } catch (error) {
-    console.log(error);
     return res.status(500).send({ message: error.message });
   }
 };
