@@ -110,7 +110,7 @@ API_AUTHORIZATION ## APi Key
 
 ### Run
 
-No your configuration is ready! Let's run it!
+Now your configuration is ready! Let's run it!
 
 ```bash
 $ npm test
