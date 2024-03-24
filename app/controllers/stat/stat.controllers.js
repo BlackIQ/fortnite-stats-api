@@ -1,4 +1,4 @@
-import { Favorite, Log } from "$app/models/index.js";
+import { Favorite, Log, User } from "$app/models/index.js";
 import { API } from "$app/api/index.js";
 
 export const FETCH = async (req, res) => {
@@ -12,14 +12,18 @@ export const FETCH = async (req, res) => {
     });
 
     const favorite = await Favorite.findOne({ fortnite_id, user });
+    const person = await User.findOne({ _id: user });
 
-    await Log.create({ fortnite_id, user })
+    const isMy = person.fortnite_id === fortnite_id;
+
+    await Log.create({ fortnite_id, user, isMy });
 
     const data = response.data;
     data.favorite = favorite;
 
     return res.status(200).send(data);
   } catch (error) {
+    console.log(error);
     return res.status(500).send({ message: error.message });
   }
 };

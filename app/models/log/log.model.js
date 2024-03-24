@@ -9,6 +9,10 @@ export const schemaModel = {
     type: String,
     default: null,
   },
+  isMy: {
+    type: Boolean,
+    default: null,
+  },
   user: {
     type: mongooseSchema.Types.ObjectId,
     ref: "User",
