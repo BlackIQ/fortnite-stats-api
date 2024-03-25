@@ -14,7 +14,7 @@ export const FETCH = async (req, res) => {
     const favorite = await Favorite.findOne({ fortnite_id, user });
     const person = await User.findOne({ _id: user });
 
-    const isMy = person.fortnite_id === fortnite_id;
+    const isMy = person?.fortnite_id === fortnite_id;
 
     await Log.create({ fortnite_id, user, isMy });
 
@@ -24,6 +24,7 @@ export const FETCH = async (req, res) => {
     return res.status(200).send(data);
   } catch (error) {
     console.log(error);
+
     return res.status(500).send({ message: error.message });
   }
 };
