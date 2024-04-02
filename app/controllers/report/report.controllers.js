@@ -102,26 +102,21 @@ Best regards,
 Battle Royale Stats.
 `;
 
-    const data = {
-      chat_id: 6731393756,
-      text: message,
-    };
-
-    const baseUrl = `https://api.telegram.org/bot${botConfig.botToken}/sendMessage`;
-
-    try {
-      const a = await axios.post(baseUrl, data);
-
-      console.log(a.data);
-    } catch (error) {
-      console.log(error);
-    }
-
     // Send message to users without username
-    usersWithoutUsername.forEach((user) => {
-      console.log(
-        `Sending message to user ${user.telegram_id} to set a username.`
-      );
+    usersWithoutUsername.forEach(async (user) => {
+      try {
+        await axios.post(
+          `https://api.telegram.org/bot${botConfig.botToken}/sendMessage`,
+          {
+            chat_id: 6731393756,
+            text: message,
+          }
+        );
+
+        console.log(`Message sent to user ${user.telegram_id}.`);
+      } catch (error) {
+        console.log(`Can't send message to user ${user.telegram_id}.`);
+      }
     });
 
     return res.status(200).send({ message: "Ok" });
