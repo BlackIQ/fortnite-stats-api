@@ -4,6 +4,12 @@ export const CREATE = async (req, res) => {
   const data = req.body;
 
   try {
+    const search = await Favorite.findOne(data);
+
+    if (search) {
+      return res.status(400).send({ message: "Favorite exists" });
+    }
+
     const favorite = await Favorite.create(data);
 
     return res.status(200).send({ message: "Favorite created", favorite });
