@@ -8,9 +8,10 @@ import env from "$app/env/index.js";
 
 export default {
   mongodb: {
-    atlas: env.MONGO_CLOUD,
     host: env.MONGODB_HOST,
     port: env.MONGODB_PORT,
+    username: env.MONGODB_USERNAME,
+    password: env.MONGODB_PASSWORD,
     collection: env.MONGODB_COLLECTION,
   },
 };
