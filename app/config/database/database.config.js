@@ -14,4 +14,9 @@ export default {
     password: env.MONGODB_PASSWORD,
     collection: env.MONGODB_COLLECTION,
   },
+  redis: {
+    host: env.REDIS_HOST,
+    port: env.REDIS_PORT,
+    password: env.REDIS_PASSWORD,
+  },
 };
